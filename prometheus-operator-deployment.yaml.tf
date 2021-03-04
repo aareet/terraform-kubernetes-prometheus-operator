@@ -11,7 +11,7 @@ resource "kubernetes_manifest" "deployment_prometheus_operator" {
         "app.kubernetes.io/version" = "0.46.0"
       }
       "name" = "prometheus-operator"
-      "namespace" = "default"
+      "namespace" = kubernetes_manifest.namespace_prometheus_operator.object.metadata.name
     }
     "spec" = {
       "replicas" = 1

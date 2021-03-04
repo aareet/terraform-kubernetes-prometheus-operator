@@ -21,7 +21,7 @@ resource "kubernetes_manifest" "clusterrolebinding_prometheus_operator" {
       {
         "kind" = "ServiceAccount"
         "name" = "prometheus-operator"
-        "namespace" = "default"
+        "namespace" = kubernetes_manifest.namespace_prometheus_operator.object.metadata.name
       },
     ]
   }
